@@ -2,7 +2,6 @@
 
 outputflag=0
 flag=0
-outputfile="morty"
 
 for file in $@; do
 	if [ $flag = 1 ]; then
