@@ -1,0 +1,4 @@
+#!/bin/bash
+read scriptname
+
+matlab -nodisplay -nosplash -nodesktop -r "run('$scriptname');exit;"
