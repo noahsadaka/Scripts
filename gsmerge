@@ -1,0 +1,26 @@
+#!/bin/bash
+
+outputflag=0
+flag=0
+outputfile="morty"
+
+for file in $@; do
+	if [ $flag = 1 ]; then
+		outputfile=$file
+		flag=0
+	else
+		inputfile=${inputfile}" "${file}
+	fi
+	if [ "$file" = "-o" ]; then
+		flag=1
+		outputflag=1
+	fi
+done
+if [ $outputflag = 0 ]; then
+	echo "output file not defined, merged file is output.pdf"
+	outputfile="output.pdf"
+fi
+gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile -dBATCH $inputfile
+
+
+
