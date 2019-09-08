@@ -3,8 +3,13 @@
 outputflag=0
 flag=0
 
-for file in $@; do
-	if [ $flag = 1 ]; then
+for file in "$@"; do
+	echo $file
+	if [[ "$file" = *[[:space:]]* ]]; then
+		quote="\""
+		file="$quote$file$quote"
+	fi
+	if [ "$flag" = 1 ]; then
 		outputfile=$file
 		flag=0
 	else
@@ -15,11 +20,11 @@ for file in $@; do
 		outputflag=1
 	fi
 done
-if [ $outputflag = 0 ]; then
+if [ "$outputflag" = 0 ]; then
 	echo "output file not defined, merged file is output.pdf"
 	outputfile="output.pdf"
 fi
-gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile -dBATCH $inputfile
+eval gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile -dBATCH $inputfile
 
 
 
