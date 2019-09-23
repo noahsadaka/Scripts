@@ -1,0 +1,4 @@
+#!/bin/bash
+
+eval tar xvzf "$1"
+
