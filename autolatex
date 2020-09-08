@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" ]]; then
+	echo "Usage: autolatex [-b]"
+	echo "options:"
+	echo "b      Run autolatex with bibtex."
+	exit 0
+fi
+
+numtexfiles=`ls *.tex | wc -l`
+
+if [[ $numtexfiles -eq 1 ]]
+then
+	texfile=`ls *.tex`
+	if [[ "$1" == "-b" ]]; then
+		pdflatex $texfile
+		bibtex $texfile
+		pdflatex $texfile
+		pdflatex $texfile
+		echo "autolatex -b done"
+	else
+		pdflatex $texfile
+		echo "autolatex done"
+	fi
+elif [[ $numtexfiles -eq 0 ]]; then
+	echo "0 tex files found"
+else
+	echo "More than 1 tex file found"
+fi
