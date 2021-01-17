@@ -1,0 +1,3 @@
+#!/bin/sh
+output=$(df -h | grep Data | awk 'BEGIN { FS = " " } ; { print $3"/"$2 }')
+echo -e $output

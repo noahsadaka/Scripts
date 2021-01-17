@@ -11,7 +11,7 @@ numtexfiles=`ls *.tex | wc -l`
 
 if [[ $numtexfiles -eq 1 ]]
 then
-	texfile=`ls *.tex`
+	texfile=`ls *.tex | cut -f 1 -d '.'` 
 	if [[ "$1" == "-b" ]]; then
 		pdflatex $texfile
 		bibtex $texfile
