@@ -1,8 +1,21 @@
 #!/bin/sh
-volume=`amixer`
+mute=`amixer | grep -m 1 "Front Left:" | awk -F'[][%]' '{print $5}'`
+volume=`amixer | grep -m 1 "Front Left:" | awk -F'[][%]' '{print $2}'`
 
-🔈
-🔉
-🔊
-🔇
-📢
+if [[ $mute == "off" ]]; then
+	icon=🔇
+else
+	if [[ $volume -lt 1 ]]; then
+		icon=🔇
+	elif [[ $volume -lt 25 ]]; then
+		icon=🔈
+	elif [[ $volume -lt 75 ]]; then
+		icon=🔉
+	elif [[ $volume -lt 150 ]]; then
+		icon=🔊
+	else
+		icon=📢
+	fi
+fi
+
+echo $icon
