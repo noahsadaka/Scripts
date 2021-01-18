@@ -1,0 +1,4 @@
+#!/bin/sh
+linuxdata=$(df -h | grep /$ | awk 'BEGIN { FS = " " } ; { print $5 }')
+Datadata=$(df -h | grep Data | awk 'BEGIN { FS = " " } ; { print $5 }')
+echo -e "🏠"$linuxdata" 💽"$Datadata

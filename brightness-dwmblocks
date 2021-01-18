@@ -1,0 +1,3 @@
+#!/bin/sh
+brightness=`xbacklight | awk -F'.' '{print $1"%"}'`
+echo $brightness
