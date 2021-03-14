@@ -1,0 +1,10 @@
+#!/bin/bash
+
+drivesize=$(lsblk | grep mount | awk {'print $4'})
+
+if [ "$drivesize" == "1.8T" ]; then
+	sudo rsync -a --delete --exclude={"~/mount/*","mount/*"} /home/noah/* ~/mount/backup/ -v
+	echo "done"
+else
+	echo "1.8 TB drive not mounted in ~/mount"
+fi
