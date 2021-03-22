@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir code
+mkdir report
+mkdir figs
+cd report
+cp ~/Documents/TeX_files/Templates/Purdue_PSET_template.tex changetitle.tex
+
+
