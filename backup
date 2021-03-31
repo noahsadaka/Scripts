@@ -8,3 +8,7 @@ if [ "$drivesize" == "1.8T" ]; then
 else
 	echo "1.8 TB drive not mounted in ~/mount"
 fi
+
+# Backup school to onedrive
+
+rclone sync  ~/Documents/school/ onedrive-purdue:school-backup --no-update-modtime -P --log-file /var/log/onedrive-backup.log
