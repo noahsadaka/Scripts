@@ -11,4 +11,8 @@ fi
 
 # Backup school to onedrive
 
-rclone sync  ~/Documents/school/ onedrive-purdue:school-backup --no-update-modtime -P --log-file /var/log/onedrive-backup.log
+rclone sync  ~/Documents/school/ onedrive-purdue:school-backup --no-update-modtime --log-file  /var/log/onedrive-backup.log -P
+
+# one-time backup commands to not run every time
+## Pictures
+#	rclone sync ~/Pictures/ onedrive-purdue:pictures --no-update-modtime --log-file /var/log/onedrive-backup.log -P
