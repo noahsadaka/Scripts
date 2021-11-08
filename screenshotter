@@ -2,4 +2,4 @@
 
 FILENAME=$( date +"%Y-%m-%d_%T.png" | sed -r 's/(:)/-/g' )
 
-import -silent ~/Pictures/screenshots/$FILENAME
+import -quality 100 -silent ~/Pictures/screenshots/$FILENAME 

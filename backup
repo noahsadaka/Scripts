@@ -3,8 +3,8 @@
 drivesize=$(lsblk | grep mount | awk {'print $4'})
 
 if [ "$drivesize" == "1.8T" ]; then
-	sudo rsync -a --delete --exclude={"~/mount/*","mount/*"} /home/noah/* ~/mount/backup/ -v
-	echo "done"
+	sudo rsync -a -L --delete --exclude={"~/mount/*","mount/*"} /home/noah/* ~/mount/backup/ -v
+	echo "done backing up to external hard drive"
 else
 	echo "1.8 TB drive not mounted in ~/mount"
 fi
@@ -16,3 +16,5 @@ rclone sync  ~/Documents/school/ onedrive-purdue:school-backup --no-update-modti
 # one-time backup commands to not run every time
 ## Pictures
 #	rclone sync ~/Pictures/ onedrive-purdue:pictures --no-update-modtime --log-file /var/log/onedrive-backup.log -P
+
+echo "done backing up to OneDrive"

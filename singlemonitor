@@ -2,11 +2,11 @@
 
 # This script is to disable a monitor / return to just laptop screen
 
-xrandr --output HDMI2 --off
+xrandr --output LVDS1 --primary --mode 1366x768 --left-of HDMI2 --output HDMI2 --off
 
-current_res=$(xrandr | grep LVDS | awk '{ print $4 }')
+#current_res=$(xrandr | grep LVDS | awk '{ print $4 }')
 
-if [ "$current_res" != "1366x768+0+0" ]
-then
-	xrandr -s 1366x768
-fi
+#if [ "$current_res" != "1366x768+0+0" ]
+#then
+#	xrandr -s 1366x768
+#fi
