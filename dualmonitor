@@ -4,7 +4,7 @@
 
 monitor=$(xrandr | grep " connected" | awk '{ print $1 }' | grep -v LVDS)
 
-xrandr --output LVDS1 --mode 1366x768 --panning 1366x768 --output $monitor --auto --right-of LVDS1 --mode 1920x1080
+xrandr --output LVDS1 --primary --mode 1366x768 --panning 1366x768 --output $monitor --auto --right-of LVDS1 --mode 1920x1080
 
 feh  --bg-max --randomize ~/Pictures/spacefotes/screensavers/*
 
