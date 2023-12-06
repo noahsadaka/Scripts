@@ -24,7 +24,7 @@ if [ "$outputflag" = 0 ]; then
 	echo "output file not defined, merged file is output.pdf"
 	outputfile="output.pdf"
 fi
-eval gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile -dBATCH $inputfile
+eval gs -dNOPAUSE -dAutoRotatePages=/None -sDEVICE=pdfwrite -sOUTPUTFILE=$outputfile -dBATCH $inputfile
 
 
 

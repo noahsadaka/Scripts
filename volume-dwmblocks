@@ -22,7 +22,7 @@ fi
 # Wifi icon
 wifistatus=`nmcli device status | grep wifi | awk '{print $3}'`
 if [[ $wifistatus == "connected" ]]; then
-	icon=$volicon""
+	icon=$volicon"📶"
 else
 	icon=$volicon
 fi	
@@ -30,7 +30,7 @@ fi
 # Bluetooth icon  
 bluetoothstatus=`bluetooth | awk '{print $3}'`
 if [[ $bluetoothstatus == "on" ]]; then
-	icon=$icon""
+	icon=$icon"🔵"
 fi
 
 

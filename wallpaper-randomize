@@ -1,0 +1,4 @@
+#!/bin/bash
+
+feh  --bg-max --randomize ~/Pictures/spacefotes/screensavers/*
+
